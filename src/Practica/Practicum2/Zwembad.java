@@ -1,14 +1,14 @@
 package Practica.Practicum2;
 
 public class Zwembad{
-    private double Breedte;
-    private double Lengte;
-    private double Diepte;
+    private double breedte;
+    private double lengte;
+    private double diepte;
 
     public Zwembad(double Bre, double Len, double Diep){
-        Breedte = Bre;
-        Lengte = Len;
-        Diepte = Diep;
+        breedte = Bre;
+        lengte = Len;
+        diepte = Diep;
     }
 
     public Zwembad(){
@@ -16,33 +16,33 @@ public class Zwembad{
     }
 /// start getterding
     public double getBreedte(){
-        return Breedte;
+        return breedte;
     }
 
     public double getDiepte() {
-        return Diepte;
+        return diepte;
     }
 
     public double getLengte() {
-        return Lengte;
+        return lengte;
     }
 /// start setterding
     public void setBreedte(double Breedte){
-        this.Breedte = Breedte;
+        this.breedte = Breedte;
     }
 
     public void setDiepte(double diepte) {
-        this.Diepte = diepte;
+        this.diepte = diepte;
     }
 
     public void setLengte(double lengte) {
-        this.Lengte = lengte;
+        this.lengte = lengte;
     }
     public double inhoud(){
-        return Breedte*Lengte*Diepte;
+        return breedte*lengte*diepte;
     }
 /// stringding voor print
     public String toString(){
-        return "Dit zwembad is " + Breedte + " meter breed, " + Lengte + " meter lang en " + Diepte + " meter diep.";
+        return "Dit zwembad is " + breedte + " meter breed, " + lengte + " meter lang en " + diepte + " meter diep.";
     }
 }
