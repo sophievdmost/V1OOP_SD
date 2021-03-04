@@ -56,6 +56,13 @@ public class Persoon {
         return str;
     }
 
+    public Game zoekGameOpNaam(String g) {
+        for (Game spel : mijnGames) {
+            if (g.equals(spel.getNaam())) {
+                return spel;
+            }
+        } return null;
+    }
     public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> games) {
         for (Game gameTest:games) {
             for (Game gameOwned:mijnGames)
