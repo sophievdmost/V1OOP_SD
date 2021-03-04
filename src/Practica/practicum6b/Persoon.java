@@ -1,12 +1,11 @@
 package Practica.practicum6b;
-
 import java.util.ArrayList;
 
 
 public class Persoon {
     private String naam;
     private double budget;
-    private ArrayList<Practica.practicum6A.Game> Game = new ArrayList<Practica.practicum6A.Game>();
+    private ArrayList<Game> Game = new ArrayList<Game>();
 
 
     public Persoon(String nm, double bud){
@@ -18,7 +17,7 @@ public class Persoon {
         return budget;
     }
 
-    public boolean koop(Practica.practicum6A.Game g) {
+    public boolean koop(Game g) {
         if (budget < g.huidigeWaarde()) {
             return false;
         } else if (Game.contains(g)) {
@@ -30,11 +29,11 @@ public class Persoon {
         }
     }
 
-    public boolean verkoop(Practica.practicum6A.Game g, Practica.practicum6A.Persoon koper) {
+    public boolean verkoop(Game g, Persoon koper) {
         if (koper.budget > g.huidigeWaarde()) {
-            for (Practica.practicum6A.Game spel : Game) {
+            for (Game spel : Game) {
                 if (g.equals(spel)) {
-                    for (Practica.practicum6A.Game spelKoper : koper.Game) {
+                    for (Game spelKoper : koper.Game) {
                         if (g.equals(spelKoper))
                             return false;
                     }
@@ -51,7 +50,7 @@ public class Persoon {
 
     public String toString(){
         String str = naam+" heeft een budget van €" +String.format("%.2f",budget)+ " en bezit de volgende games:";
-        for (Practica.practicum6A.Game gam : this.Game){
+        for (Game gam : this.Game){
             str += "\n" + gam;
         }
         return str;
