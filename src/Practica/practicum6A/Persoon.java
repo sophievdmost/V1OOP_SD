@@ -44,14 +44,14 @@ public class Persoon {
                     return true;
                 }
             }
-        } else ;
+        }
         return false;
     }
 
     public String toString(){
-        String str = naam+" heeft een budget van €" +String.format("%.2f",budget)+ " en bezit de volgende games: \n";
+        String str = naam+" heeft een budget van €" +String.format("%.2f",budget)+ " en bezit de volgende games:";
         for (Game gam : this.Game){
-            str += gam;
+            str += "\n" + gam;
         }
         return str;
     }
