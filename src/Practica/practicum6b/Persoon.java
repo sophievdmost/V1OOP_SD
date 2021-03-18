@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Persoon {
     private String naam;
     private double budget;
-    private ArrayList<Game> Game = new ArrayList<Game>();
+    private ArrayList<Game> mijnGames = new ArrayList<Game>();
 
 
     public Persoon(String nm, double bud){
@@ -20,27 +20,27 @@ public class Persoon {
     public boolean koop(Game g) {
         if (budget < g.huidigeWaarde()) {
             return false;
-        } else if (Game.contains(g)) {
+        } else if (mijnGames.contains(g)) {
             return false;
         } else {
             budget -= g.huidigeWaarde();
-            Game.add(g);
+            mijnGames.add(g);
             return true;
         }
     }
 
     public boolean verkoop(Game g, Persoon koper) {
         if (koper.budget > g.huidigeWaarde()) {
-            for (Game spel : Game) {
+            for (Game spel : mijnGames) {
                 if (g.equals(spel)) {
-                    for (Game spelKoper : koper.Game) {
+                    for (Game spelKoper : koper.mijnGames) {
                         if (g.equals(spelKoper))
                             return false;
                     }
                     koper.budget -= g.huidigeWaarde();
-                    koper.Game.add(g);
+                    koper.mijnGames.add(g);
                     budget += g.huidigeWaarde();
-                    Game.remove(g);
+                    mijnGames.remove(g);
                     return true;
                 }
             }
@@ -50,10 +50,26 @@ public class Persoon {
 
     public String toString(){
         String str = naam+" heeft een budget van €" +String.format("%.2f",budget)+ " en bezit de volgende games:";
-        for (Game gam : this.Game){
+        for (Game gam : this.mijnGames){
             str += "\n" + gam;
         }
         return str;
     }
 
+    public Game zoekGameOpNaam(String g) {
+        for (Game spel : mijnGames) {
+            if (g.equals(spel.getNaam())) {
+                return spel;
+            }
+        } return null;
+    }
+    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> games) {
+        for (Game gameTest:games) {
+            for (Game gameOwned:mijnGames)
+         if ( gameOwned.equals(gameTest)) {
+             games.remove(gameTest);
+         }
+        }
+        return games;
+    }
 }

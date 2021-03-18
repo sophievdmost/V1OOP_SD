@@ -1,6 +1,7 @@
-import Practica.Practicum4B.Auto;
 import Practica.Practicum4B.AutoHuur;
 import Practica.Practicum4B.Klant;
+import Practica.Practicum4B.Auto;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -72,4 +73,17 @@ class AutoHuurtest {
         assertEquals(null, test2.getGehuurdeAuto());
         assertEquals("Mevr.Barnes(korting: 0.0%)", test.toString());
     }
+
+    @Test
+    public  void OngelidgeKorting(){
+            Klant k1 = new Klant("bino");
+            k1.setKorting(-1);
+            AutoHuur ah = new AutoHuur();
+            ah.setHuurder(k1);
+
+            assertEquals(k1.getKorting()=null);
+
+        }
+    }
+
 }
