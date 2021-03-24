@@ -31,5 +31,7 @@ public class Main {
 
         Game game1 = p1.zoekGameOpNaam("Just Cause 3");
         System.out.println("p1 heeft Just Cause 3 " + (game1 != null ? "wel!" : "niet!"));
+
+        //Even laten we zien dat we merge onclficts kunnen oplossen
     }
 }
