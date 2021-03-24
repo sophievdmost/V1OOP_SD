@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Persoon {
     private String naam;
     private double budget;
-    private ArrayList<Game> Game = new ArrayList<Game>();
+    private ArrayList<Game> game = new ArrayList<Game>();
 
 
     public Persoon(String nm, double bud){
@@ -20,27 +20,27 @@ public class Persoon {
     public boolean koop(Game g) {
         if (budget < g.huidigeWaarde()) {
             return false;
-        } else if (Game.contains(g)) {
+        } else if (game.contains(g)) {
             return false;
         } else {
             budget -= g.huidigeWaarde();
-            Game.add(g);
+            game.add(g);
             return true;
         }
     }
 
     public boolean verkoop(Game g, Persoon koper) {
         if (koper.budget > g.huidigeWaarde()) {
-            for (Game spel : Game) {
+            for (Game spel : game) {
                 if (g.equals(spel)) {
-                    for (Game spelKoper : koper.Game) {
+                    for (Game spelKoper : koper.game) {
                         if (g.equals(spelKoper))
                             return false;
                     }
                     koper.budget -= g.huidigeWaarde();
-                    koper.Game.add(g);
+                    koper.game.add(g);
                     budget += g.huidigeWaarde();
-                    Game.remove(g);
+                    game.remove(g);
                     return true;
                 }
             }
@@ -50,7 +50,7 @@ public class Persoon {
 
     public String toString(){
         String str = naam+" heeft een budget van €" +String.format("%.2f",budget)+ " en bezit de volgende games:";
-        for (Game gam : this.Game){
+        for (Game gam : this.game){
             str += "\n" + gam;
         }
         return str;

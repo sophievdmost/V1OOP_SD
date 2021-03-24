@@ -9,5 +9,6 @@ public class Main {
 
         System.out.println(euroBedrag(prijs));
         System.out.println(euroBedrag(tweedeprijs, 1));
+        System.out.println(Utils.aantalGebruikt());
     }
 }

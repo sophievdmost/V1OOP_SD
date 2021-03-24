@@ -13,11 +13,13 @@ public class Klant {
     }
 
     public double getKorting() {
+        if (kortingsPercentage < 0){
+            return 0;
+        }else
         return kortingsPercentage;
     }
 
     public String toString(){
-        String str = "";
         if (naam == "")
                 return naam;
         if (naam == null)

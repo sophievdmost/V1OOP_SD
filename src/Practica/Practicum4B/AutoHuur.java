@@ -1,5 +1,6 @@
 package Practica.Practicum4B;
 
+
 public class AutoHuur {
     private int aantalDagen;
     private Klant huurder;
@@ -11,6 +12,9 @@ public class AutoHuur {
     }
 
     public int getAantalDagen() {
+        if (aantalDagen < 0){
+            return 0;
+        } else
         return aantalDagen;
     }
     public void setGehuurdeAuto(Auto gehuurdeAuto){

@@ -1,16 +1,15 @@
+import Practica.Practicum4B.Auto;
 import Practica.Practicum4B.AutoHuur;
 import Practica.Practicum4B.Klant;
-import Practica.Practicum4B.Auto;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AutoHuurtest {
-    private Klant test;
-    private AutoHuur test2;
-    private Auto test3;
+    public Klant test;
+    public AutoHuur test2;
+    public Auto test3;
 
 
     @BeforeEach
@@ -75,15 +74,18 @@ class AutoHuurtest {
     }
 
     @Test
-    public  void OngelidgeKorting(){
+    public  void testNegatieveKorting(){
             Klant k1 = new Klant("bino");
             k1.setKorting(-1);
-            AutoHuur ah = new AutoHuur();
-            ah.setHuurder(k1);
-
-            assertEquals(k1.getKorting()=null);
-
+            assertEquals(k1.getKorting(), 0);
         }
+
+    @Test
+    public void testNegatieveDagen(){
+        AutoHuur ah1 = new AutoHuur();
+        ah1.setAantalDagen(-1);
+        assertEquals(ah1.getAantalDagen(), 0);
     }
 
-}
+    }
+
